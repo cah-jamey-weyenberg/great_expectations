@@ -14,6 +14,7 @@ class SupportsJsonDict(Mapping, Protocol):
     """TODO: I think this is part of the Config object"""
 
     def to_json_dict(self) -> dict:
+        """Foo."""
         ...
 
 
@@ -21,6 +22,7 @@ class Loadable(Protocol):
     """TODO: also be dumpable?"""
 
     def load(self, x) -> SupportsJsonDict:
+        """Foo."""
         ...
 
 
