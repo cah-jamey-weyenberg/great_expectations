@@ -1,6 +1,6 @@
 """Contains general abstract or base classes used across configuration objects."""
 from abc import ABC
-from typing import Mapping, Optional
+from typing import Optional
 
 try:
     from typing import Protocol
@@ -10,7 +10,7 @@ except ImportError:
 from great_expectations.types import SerializableDictDot
 
 
-class SupportsJsonDict(Mapping, Protocol):
+class SupportsJsonDict(Protocol):
     """TODO: I think this is part of the Config object"""
 
     def to_json_dict(self) -> dict:
@@ -45,5 +45,5 @@ class AbstractConfig(ABC, SerializableDictDot):
         Example: Swapping `id_` with `id`.
         """
         _loaded = schema.load(target)
-        _config = cls(**_loaded)
+        _config = cls(**_loaded)  # type: ignore[arg-type]
         return _config.to_json_dict()
