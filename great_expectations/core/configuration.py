@@ -2,7 +2,22 @@
 from abc import ABC
 from typing import Optional
 
+try:
+    from typing import Protocol
+except ImportError:
+    from typing_extensions import Protocol  # type: ignore[misc]
+
 from great_expectations.types import SerializableDictDot
+
+
+class SupportsJsonDict(Protocol):
+    def to_json_dict(self) -> dict:
+        ...
+
+
+class Loadable(Protocol):
+    def load(self, x) -> SupportsJsonDict:
+        ...
 
 
 class AbstractConfig(ABC, SerializableDictDot):
@@ -16,3 +31,12 @@ class AbstractConfig(ABC, SerializableDictDot):
         if name is not None:
             self.name = name
         super().__init__()
+
+    @classmethod
+    def dict_round_trip(cls, schema: Loadable, target: dict) -> dict:
+        """
+        Round trip a dictionary with a schema so that validation and serialization logic is applied.
+        Example: Swapping `id_` with `id`.
+        """
+        _parsed = schema.load(target)
+        return _parsed.to_json_dict()
