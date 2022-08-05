@@ -46,3 +46,8 @@ def test_datasource_config_is_serialized(
     loaded_data = datasourceConfigSchema.load(observed_dump)
     observed_load = DatasourceConfig(**loaded_data)
     assert observed_load.to_json_dict() == datasource_config.to_json_dict()
+
+    assert (
+        DatasourceConfig.dict_round_trip(datasourceConfigSchema, observed_dump)
+        == datasource_config.to_json_dict()
+    )
