@@ -125,6 +125,7 @@ DEFAULT_PACKAGES_TO_TYPE_CHECK = [
     # "checkpoint",  # 78
     # "cli",  # 237
     # "core",  # 242
+    "core/configuration.py",
     "data_asset",  # 0
     # "data_context",  # 242
     # "data_context/data_context",  # 195
