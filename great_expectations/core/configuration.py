@@ -12,10 +12,10 @@ from great_expectations.types import SerializableDictDot
 
 
 class Loadable(Protocol):
-    """TODO: also be dumpable?"""
+    """Object should have a `.load(x)` method that returns a dict-like `Mapping` object."""
 
     def load(self, x) -> Mapping:
-        """Foo."""
+        """Load an object and return a `dict` or dict-like `Mapping` object."""
         ...
 
 
