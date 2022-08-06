@@ -90,7 +90,7 @@ class CloudDataContext(AbstractDataContext):
         return [suite_key.ge_cloud_id for suite_key in self.list_expectation_suites()]
 
     @property
-    def ge_cloud_config(self) -> Optional[GeCloudConfig]:
+    def ge_cloud_config(self) -> GeCloudConfig:
         return self._ge_cloud_config
 
     @property
