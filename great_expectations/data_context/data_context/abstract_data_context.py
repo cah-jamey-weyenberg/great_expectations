@@ -160,7 +160,7 @@ class AbstractDataContext(ABC):
         self.runtime_environment = runtime_environment
 
         # These attributes that are set downstream.
-        self._variables = None
+        self._variables: Union[DataContextVariables, None] = None
         self._config_variables = None
 
         # Init plugin support
