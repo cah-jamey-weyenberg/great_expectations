@@ -177,6 +177,7 @@ class Store:
         ]
         return [self.tuple_to_key(key) for key in keys_without_store_backend_id]
 
+    # TODO: rewrite as `__contains__` -> `x in y`
     def has_key(self, key: DataContextKey) -> bool:
         if key == StoreBackend.STORE_BACKEND_ID_KEY:
             return self._store_backend.has_key(key)
