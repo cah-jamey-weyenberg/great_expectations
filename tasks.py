@@ -129,6 +129,7 @@ DEFAULT_PACKAGES_TO_TYPE_CHECK = [
     "data_asset",  # 0
     # "data_context",  # 242
     # "data_context/data_context",  # 195
+    "data_context/data_context/cloud_data_context.py",  # 17
     # "data_context/store", # 83
     "data_context/types",  # 0
     # "datasource",  # 98
