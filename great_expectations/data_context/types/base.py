@@ -5,7 +5,17 @@ import itertools
 import json
 import logging
 import uuid
-from typing import TYPE_CHECKING, Any, Dict, List, MutableMapping, Optional, Set, Union
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    Dict,
+    List,
+    MutableMapping,
+    Optional,
+    Set,
+    Union,
+    cast,
+)
 from uuid import UUID
 
 from ruamel.yaml import YAML
@@ -1320,9 +1330,9 @@ class GeCloudConfig(DictDot):
     def __init__(
         self,
         base_url: str,
-        account_id: str = None,
+        account_id: Optional[str] = None,
         access_token: str = None,
-        organization_id: str = None,
+        organization_id: Optional[str] = None,
     ) -> None:
         # access_token was given a default value to maintain arg position of account_id
         if access_token is None:
@@ -1339,7 +1349,7 @@ class GeCloudConfig(DictDot):
             )
 
         self.base_url = base_url
-        self.organization_id = organization_id or account_id
+        self.organization_id = cast(str, organization_id or account_id)
         self.access_token = access_token
 
     # TODO: remove property when account_id is deprecated
