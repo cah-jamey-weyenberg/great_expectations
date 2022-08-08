@@ -47,7 +47,12 @@ def test_datasource_config_is_serialized(
     observed_load = DatasourceConfig(**loaded_data)
     assert observed_load.to_json_dict() == datasource_config.to_json_dict()
 
-    assert (
-        DatasourceConfig.dict_round_trip(datasourceConfigSchema, observed_dump)
-        == datasource_config.to_json_dict()
+    round_tripped = DatasourceConfig.dict_round_trip(
+        datasourceConfigSchema, observed_dump
     )
+
+    print(round_tripped)
+    print(observed_dump)
+    assert round_tripped == datasource_config.to_json_dict()
+    assert round_tripped.get("id_") == observed_dump.get("id")
+    # TODO: cleanup this test, and write a dedicated `dict_round_trip` test
