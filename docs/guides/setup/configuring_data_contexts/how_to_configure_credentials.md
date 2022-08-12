@@ -141,31 +141,27 @@ Or like this:
 ```yaml
 datasources:
   dev_postgres_db:
-    class_name: SqlAlchemyDatasource
-    data_asset_type:
-      class_name: SqlAlchemyDataset
-      module_name: great_expectations.dataset
-    module_name: great_expectations.datasource
-    credentials:
-      drivername: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:dev_db_credentials|drivername
-      host: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:dev_db_credentials|host
-      port: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:dev_db_credentials|port
-      username: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:dev_db_credentials|username
-      password: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:dev_db_credentials|password
-      database: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:dev_db_credentials|database
+    class_name: Datasource
+    execution_engine:
+      class_name: SqlAlchemyExecutionEngine
+      credentials:
+        drivername: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:dev_db_credentials|drivername
+        host: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:dev_db_credentials|host
+        port: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:dev_db_credentials|port
+        username: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:dev_db_credentials|username
+        password: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:dev_db_credentials|password
+        database: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:dev_db_credentials|database
   prod_postgres_db:
-    class_name: SqlAlchemyDatasource
-    data_asset_type:
-      class_name: SqlAlchemyDataset
-      module_name: great_expectations.dataset
-    module_name: great_expectations.datasource
-    credentials:
-      drivername: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:PROD_DB_CREDENTIALS_DRIVERNAME
-      host: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:PROD_DB_CREDENTIALS_HOST
-      port: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:PROD_DB_CREDENTIALS_PORT
-      username: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:PROD_DB_CREDENTIALS_USERNAME
-      password: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:PROD_DB_CREDENTIALS_PASSWORD
-      database: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:PROD_DB_CREDENTIALS_DATABASE
+    class_name: Datasource
+    execution_engine:
+      class_name: SqlAlchemyExecutionEngine
+      credentials:
+        drivername: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:PROD_DB_CREDENTIALS_DRIVERNAME
+        host: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:PROD_DB_CREDENTIALS_HOST
+        port: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:PROD_DB_CREDENTIALS_PORT
+        username: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:PROD_DB_CREDENTIALS_USERNAME
+        password: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:PROD_DB_CREDENTIALS_PASSWORD
+        database: secret|arn:aws:secretsmanager:${AWS_REGION}:${ACCOUNT_ID}:secret:PROD_DB_CREDENTIALS_DATABASE
 ```
 
 </TabItem>
@@ -215,31 +211,27 @@ Or like this:
 ```yaml
 datasources:
   dev_postgres_db:
-    class_name: SqlAlchemyDatasource
-    data_asset_type:
-      class_name: SqlAlchemyDataset
-      module_name: great_expectations.dataset
-    module_name: great_expectations.datasource
-    credentials:
-      drivername: secret|projects/${PROJECT_ID}/secrets/dev_db_credentials|drivername
-      host: secret|projects/${PROJECT_ID}/secrets/dev_db_credentials|host
-      port: secret|projects/${PROJECT_ID}/secrets/dev_db_credentials|port
-      username: secret|projects/${PROJECT_ID}/secrets/dev_db_credentials|username
-      password: secret|projects/${PROJECT_ID}/secrets/dev_db_credentials|password
-      database: secret|projects/${PROJECT_ID}/secrets/dev_db_credentials|database
+    class_name: Datasource
+    execution_engine:
+      class_name: SqlAlchemyExecutionEngine
+      credentials:
+        drivername: secret|projects/${PROJECT_ID}/secrets/dev_db_credentials|drivername
+        host: secret|projects/${PROJECT_ID}/secrets/dev_db_credentials|host
+        port: secret|projects/${PROJECT_ID}/secrets/dev_db_credentials|port
+        username: secret|projects/${PROJECT_ID}/secrets/dev_db_credentials|username
+        password: secret|projects/${PROJECT_ID}/secrets/dev_db_credentials|password
+        database: secret|projects/${PROJECT_ID}/secrets/dev_db_credentials|database
   prod_postgres_db:
-    class_name: SqlAlchemyDatasource
-    data_asset_type:
-      class_name: SqlAlchemyDataset
-      module_name: great_expectations.dataset
-    module_name: great_expectations.datasource
-    credentials:
-      drivername: secret|projects/${PROJECT_ID}/secrets/PROD_DB_CREDENTIALS_DRIVERNAME
-      host: secret|projects/${PROJECT_ID}/secrets/PROD_DB_CREDENTIALS_HOST
-      port: secret|projects/${PROJECT_ID}/secrets/PROD_DB_CREDENTIALS_PORT
-      username: secret|projects/${PROJECT_ID}/secrets/PROD_DB_CREDENTIALS_USERNAME
-      password: secret|projects/${PROJECT_ID}/secrets/PROD_DB_CREDENTIALS_PASSWORD
-      database: secret|projects/${PROJECT_ID}/secrets/PROD_DB_CREDENTIALS_DATABASE
+    class_name: Datasource
+    execution_engine:
+      class_name: SqlAlchemyExecutionEngine
+      credentials:
+        drivername: secret|projects/${PROJECT_ID}/secrets/PROD_DB_CREDENTIALS_DRIVERNAME
+        host: secret|projects/${PROJECT_ID}/secrets/PROD_DB_CREDENTIALS_HOST
+        port: secret|projects/${PROJECT_ID}/secrets/PROD_DB_CREDENTIALS_PORT
+        username: secret|projects/${PROJECT_ID}/secrets/PROD_DB_CREDENTIALS_USERNAME
+        password: secret|projects/${PROJECT_ID}/secrets/PROD_DB_CREDENTIALS_PASSWORD
+        database: secret|projects/${PROJECT_ID}/secrets/PROD_DB_CREDENTIALS_DATABASE
 ```
 
 </TabItem>
@@ -291,31 +283,27 @@ Or like this:
 ```yaml
 datasources:
   dev_postgres_db:
-    class_name: SqlAlchemyDatasource
-    data_asset_type:
-      class_name: SqlAlchemyDataset
-      module_name: great_expectations.dataset
-    module_name: great_expectations.datasource
-    credentials:
-      drivername: secret|https://${VAULT_NAME}.vault.azure.net/secrets/dev_db_credentials|drivername
-      host: secret|https://${VAULT_NAME}.vault.azure.net/secrets/dev_db_credentials|host
-      port: secret|https://${VAULT_NAME}.vault.azure.net/secrets/dev_db_credentials|port
-      username: secret|https://${VAULT_NAME}.vault.azure.net/secrets/dev_db_credentials|username
-      password: secret|https://${VAULT_NAME}.vault.azure.net/secrets/dev_db_credentials|password
-      database: secret|https://${VAULT_NAME}.vault.azure.net/secrets/dev_db_credentials|database
+    class_name: Datasource
+    execution_engine:
+      class_name: SqlAlchemyExecutionEngine
+      credentials:
+        drivername: secret|https://${VAULT_NAME}.vault.azure.net/secrets/dev_db_credentials|drivername
+        host: secret|https://${VAULT_NAME}.vault.azure.net/secrets/dev_db_credentials|host
+        port: secret|https://${VAULT_NAME}.vault.azure.net/secrets/dev_db_credentials|port
+        username: secret|https://${VAULT_NAME}.vault.azure.net/secrets/dev_db_credentials|username
+        password: secret|https://${VAULT_NAME}.vault.azure.net/secrets/dev_db_credentials|password
+        database: secret|https://${VAULT_NAME}.vault.azure.net/secrets/dev_db_credentials|database
   prod_postgres_db:
-    class_name: SqlAlchemyDatasource
-    data_asset_type:
-      class_name: SqlAlchemyDataset
-      module_name: great_expectations.dataset
-    module_name: great_expectations.datasource
-    credentials:
-      drivername: secret|https://${VAULT_NAME}.vault.azure.net/secrets/PROD_DB_CREDENTIALS_DRIVERNAME
-      host: secret|https://${VAULT_NAME}.vault.azure.net/secrets/PROD_DB_CREDENTIALS_HOST
-      port: secret|https://${VAULT_NAME}.vault.azure.net/secrets/PROD_DB_CREDENTIALS_PORT
-      username: secret|https://${VAULT_NAME}.vault.azure.net/secrets/PROD_DB_CREDENTIALS_USERNAME
-      password: secret|https://${VAULT_NAME}.vault.azure.net/secrets/PROD_DB_CREDENTIALS_PASSWORD
-      database: secret|https://${VAULT_NAME}.vault.azure.net/secrets/PROD_DB_CREDENTIALS_DATABASE
+    class_name: Datasource
+    execution_engine:
+      class_name: SqlAlchemyExecutionEngine
+      credentials:
+        drivername: secret|https://${VAULT_NAME}.vault.azure.net/secrets/PROD_DB_CREDENTIALS_DRIVERNAME
+        host: secret|https://${VAULT_NAME}.vault.azure.net/secrets/PROD_DB_CREDENTIALS_HOST
+        port: secret|https://${VAULT_NAME}.vault.azure.net/secrets/PROD_DB_CREDENTIALS_PORT
+        username: secret|https://${VAULT_NAME}.vault.azure.net/secrets/PROD_DB_CREDENTIALS_USERNAME
+        password: secret|https://${VAULT_NAME}.vault.azure.net/secrets/PROD_DB_CREDENTIALS_PASSWORD
+        database: secret|https://${VAULT_NAME}.vault.azure.net/secrets/PROD_DB_CREDENTIALS_DATABASE
 ```
 
 </TabItem>
